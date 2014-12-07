@@ -1,0 +1,26 @@
+<krpano>
+	<imgShow name="t1">
+		<imgs src="%SWFPATH%/imgs/1.jpg" alt="南门" name="img1" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/2.jpg" alt="b{这都是什么啊2?}" name="img2" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/3.jpg" alt="b{这都是什么啊3?}" name="img3" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/4.jpg" alt="b{这都是什么啊4?}" name="img4" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/5.jpg" alt="b{这都是什么啊5?}" name="img5" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/5.jpg" alt="b{这都是什么啊6?}" name="img6" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/6.jpg" alt="b{这都是什么啊7?}" name="img7" onlick=""/>
+	</imgShow>
+	<imgShow name="t2">
+		<imgs src="%SWFPATH%/imgs/7.jpg" alt="" name="img1" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/8.jpg" alt="" name="img2" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/9.jpg" alt="" name="img3" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/10.jpg" alt="" name="img4" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/11.jpg" alt="" name="img5" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/12.jpg" alt="" name="img6" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/13.jpg" alt="" name="img7" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/14.jpg" alt="" name="img8" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/14.jpg" alt="" name="img9" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/14.jpg" alt="" name="img10" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/14.jpg" alt="" name="img11" onlick=""/>
+		<imgs src="%SWFPATH%/imgs/14.jpg" alt="" name="img12" onlick=""/>
+	</imgShow>
+
+</krpano>

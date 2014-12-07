@@ -1,0 +1,157 @@
+<krpano>
+	<!--krpano 幻灯片插件 2.0正式版
+
+-->
+	<photoSetings
+		sltW="120"
+		sltH="80"
+		sltKW="112"
+		sltKH="72"
+		margin="15"
+		bgc="0xFFFFFF"
+		nowimg="0"
+		needClear="0"
+		upimg="1"
+		nowShow=""
+		parents="sc1"
+		/>
+<events name="loadlive" keep="true" onnewpano="clImgs();onInit(get(scene[get(xml.scene)].title));" />
+<layer name="heiQUYU" keep="true" bgalpha="0"  bgcolor="0x2B2B2B"  type="container" width="100%" height="100%"  align="center" edge="center" />
+<layer name="left_close" visible="false" url="%SWFPATH%/skin/1.png" keep="true" width="100%" height="100%" onclick="onclick_photo2_GuanBiAnNiu()" zorder="0" align="center" edge="center"/>
+	<layer name="photo1_ZuiwaiCe" keep="true" visible="false" type="container" width="50%" height="75%" align="center" edge="center" >
+		<layer name="photo2_GuanBiAnNiu" keep="true" align="top" onclick="onclick_photo2_GuanBiAnNiu()" width="20" height="20" y="-20"  scale="2.0"  url="%SWFPATH%/skin/x2.png" />
+		<layer name="photo2_TuPianZhanShiQu" keep="true" width="100%" height="80%" align="lefttop" type="container" bgcolor="0xFFFFFF" bgalpha="0.7"  >
+			<layer name="nowImg" keep="true" align="center" zorder="0" width="98%" height="97%" type="image"/>
+			<layer name="photo3_TopButtonLeft" onover="onent_photo3_TopButtonLeft()" onout="onout_photo3_TopButtonLeft()" keep="true" width="10%" onclick="onclick_photo3_TopButtonLeft()" height="30%" align="left" url="%SWFPATH%/skin/anniu3.png" zorder="5" />
+			<layer name="photo3_TopButtonRight" keep="true" onover="onent_photo3_TopButtonRight()" onout="onout_photo3_TopButtonRight()" onclick="onclick_photo3_TopButtonRight()" width="10%" height="30%" align="right" url="%SWFPATH%/skin/anniu3x.png" zorder="5" bgborder="2" />
+			<layer name="photo3_textAre" type="container" width="98%" height="12%" keep="true" y="5" zorder="1" bgcolor="0x000000" bgalpha="0.5" align="bottom" >
+				<layer name="photo4_text" url="%SWFPATH%/plugins/textfield.swf" backgroundalpha="0"  html="" width="100%" align="left" css="color:#FFFFFF;font-family:'Microsoft Yahei','微软雅黑';font-size:18px" />
+			</layer>
+		</layer>
+		<layer name="photo2_TuPianSuoLiuTu" keep="true" type="container" width="100%" height="20%" align="bottom"  >
+			<layer name="photo3_BottomButtonLeft" zorder="4" ondown="scroll_left()" keep="true" width="10%" height="100%" scale="0.6" align="left" url="%SWFPATH%/skin/x1x.png"  />
+			<layer name="photo3_BottomButtonRight" zorder="4"  ondown="scroll_right()" keep="true" width="10%" height="100%" scale="0.6" align="right" url="%SWFPATH%/skin/x1.png"  />
+			<layer name="photo3_BottomSuoLuTuQu" zorder="4" keep="true" width="100%" height="100%" align="center" edge="center" />
+			<plugin name="sc1" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" zorder="1" align="center" width="1635" height="100%" direction="h"
+       		/>
+			<layer name="photo3_bottom_Back_Alpha" keep="true" type="container" align="lefttop" width="100%" zorder="0" height="100%" bgalpha="0.2"  bgcolor="0xFFFFFF" />
+		</layer>
+	</layer>
+<!-- action 区-->
+<action name="onInit">
+	InitSuoluTu(%1);
+</action>
+<action name="showImgs">
+	exImg(get(photoSetings.nowShow),'1');
+	tween(layer[heiQUYU].bgalpha,0.7,0.3,default);
+	set(layer[photo1_ZuiwaiCe].visible,true);
+	set(layer[left_close].visible,true);
+	tween(layer[photo1_ZuiwaiCe].alpha,1,0.4,default);
+	tween(layer[photo1_ZuiwaiCe].height,75%,0.4,default);
+	tween(layer[photo1_ZuiwaiCe].width,50%,0.4,default);
+	delayedcall(0.5, layer[sc1].setcenter(0,0); );
+</action>
+<action name="clImgs">
+	if(photoSetings.needClear==1,
+	set(n,get(photoSetings.nowShow));
+	for(set(i,1),i LE imgShow[%n].imgs.count,inc(i),
+		txtadd(imgName,'img',get(i));
+		set(plugin[%imgName].url,);
+	);,
+	set(photoSetings.needClear,1);
+);
+</action>
+<action name="onent_photo3_TopButtonLeft">
+		set(layer[photo3_TopButtonLeft].url,%SWFPATH%/skin/aniu2.png);
+</action>
+<action name="onout_photo3_TopButtonLeft">
+		set(layer[photo3_TopButtonLeft].url,%SWFPATH%/skin/anniu3.png);
+</action>
+
+<action name="onclick_photo3_TopButtonLeft">
+		set(i,get(photoSetings.nowimg));
+		dec(i);
+		if(i!=0,exImg(get(photoSetings.nowShow),get(i));)
+</action>
+<action name="onclick_photo3_TopButtonRight">
+		set(i,get(photoSetings.nowimg));
+		set(now,get(photoSetings.nowShow));
+		inc(i);
+		if(i LE imgShow[%now].imgs.count,exImg(get(photoSetings.nowShow),get(i)););
+</action>
+
+<action name="onent_photo3_TopButtonRight">
+		set(layer[photo3_TopButtonRight].url,%SWFPATH%/skin/aniu2x.png);
+</action>
+<action name="onout_photo3_TopButtonRight">
+		set(layer[photo3_TopButtonRight].url,%SWFPATH%/skin/anniu3x.png);
+</action>
+<action name="onclick_photo2_GuanBiAnNiu">
+		tween(layer[photo1_ZuiwaiCe].alpha,0,0.4,default);
+		tween(layer[heiQUYU].bgalpha,0,0.3,default);
+		set(layer[left_close].visible,false);
+		tween(layer[photo1_ZuiwaiCe].width|layer[photo1_ZuiwaiCe].height,10%,0.4,default,set(layer[photo1_ZuiwaiCe].visible,false));
+</action>
+<action name="InitSuoluTu">
+		set(margin,25);
+		set(photoSetings.nowShow,%1);
+		for(set(i,1),i LE imgShow[%1].imgs.count,inc(i),
+			txtadd(imgCol,'imgCol',get(i));
+			addlayer(get(imgCol));
+			set(plugin[%imgCol].type,'container');
+			set(plugin[%imgCol].keep,true);
+			set(plugin[%imgCol].parent,'sc1');
+			set(plugin[%imgCol].zorder,1);
+			set(plugin[%imgCol].width,get(photoSetings.sltW));
+			set(plugin[%imgCol].height,get(photoSetings.sltH));
+			set(plugin[%imgCol].handcursor,true);
+			set(plugin[%imgCol].x,get(margin));
+			set(plugin[%imgCol].bgalpha,0);
+			set(plugin[%imgCol].bgcolor,'0xFFFFFF');
+			set(plugin[%imgCol].align,left);
+			set(plugin[%imgCol].edge,left);
+			add(margin,get(photoSetings.margin));
+			add(margin,get(plugin[%imgCol].width));
+		);
+		set(size,0);
+		mul(size,135,imgShow[%1].imgs.count);
+		add(size,25);
+		set(plugin[sc1].width,get(size));
+		for(set(i,1),i LE imgShow[%1].imgs.count,inc(i),
+			txtadd(imgName,'img',get(i));
+			txtadd(imgParent,'imgCol',get(i));
+			txtadd(click,'exImg(',%1,',',get(i),')');
+			addlayer(get(imgName));
+			set(plugin[%imgName].url,get(imgShow[%1].imgs[%imgName].src));
+			set(plugin[%imgName].type,'image');
+			set(plugin[%imgName].keep,true);
+			set(plugin[%imgName].parent,get(imgParent));
+			set(plugin[%imgName].zorder,1);
+			set(plugin[%imgName].width,get(photoSetings.sltKW));
+			set(plugin[%imgName].height,get(photoSetings.sltKH));
+			set(plugin[%imgName].handcursor,true);
+			set(plugin[%imgName].align,center);
+			set(plugin[%imgName].onclick,get(click));
+			set(plugin[%imgName].edge,center);
+		);
+</action>
+<action name="exImg">
+	txtadd(col,"imgCol",%2);
+	plugin[sc1].scrolltocenter(get(plugin[%col].x),0);
+	txtadd(im,'img',%2);
+	set(plugin[photo4_text].html,get(imgShow[%1].imgs[%im].alt));
+	tween(layer[nowImg].alpha,0,0.2,default,set(layer[nowImg].url,get(imgShow[%1].imgs[%im].src));tween(layer[nowImg].alpha,1,0.1););
+	txtadd(imgupcol,'imgCol',get(photoSetings.upimg));
+	set(plugin[%imgupcol].bgalpha,0);
+	txtadd(imgcol,'imgCol',%2);
+	set(plugin[%imgcol].bgalpha,1);
+	set(photoSetings.upimg,%2);
+	set(photoSetings.nowimg,%2);
+</action>
+<action name="scroll_left">
+	asyncloop(pressed,plugin[sc1].scrollby(+2,0));
+</action>
+<action name="scroll_right">
+	asyncloop(pressed, plugin[sc1].scrollby(-2,0));
+</action>
+</krpano>

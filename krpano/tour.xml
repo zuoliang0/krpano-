@@ -1,0 +1,18 @@
+<krpano onstart="loadscene(pano1,null,MERGE);start();">
+<!--这是一个图片幻灯片的例子by张左良 QQ178620086-->
+	<include url="plugins/photoShow.xml"  /><!--导入插件-->
+	<include url="xml/imgs.xml" /><!--导入图片，其实可以不用写在另一个xml中，只是了好看-->
+
+	<layer name="btn1" keep="true" width="100" height="40" url="skin/show.png" algin="center" onclick="showImgs()"/>
+	<scene name="pano1" title='t1'>
+		<preview url="pano1.jpg" />
+		<!--预览图url-->
+		<image><cubestrip url="pano1.jpg" /></image>
+		<!--全景图片地址url-->
+	</scene>
+	<scene name="pano2" title="t2"><preview url="pano3.jpg" /><image><cubestrip url="pano3.jpg" /></image></scene>
+	<scene name="pano3"><preview url="pano6.jpg" /><image><cubestrip url="pano6.jpg" /></image></scene>
+	<scene name="pano4"><preview url="pano9.jpg" /><image><cubestrip url="pano9.jpg" /></image></scene>
+	<display movequality10="BEST" stillquality10="BEST" />
+
+</krpano>
