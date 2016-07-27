@@ -1,5 +1,5 @@
 <krpano onstart="loadscene(pano1,null,MERGE);start();">
-<!--这是一个图片幻灯片的例子by张左良 QQ178620086-->
+<!--这是一个图片幻灯片的例子-->
 	<include url="plugins/photoShow.xml"  /><!--导入插件-->
 	<include url="xml/imgs.xml" /><!--导入图片，其实可以不用写在另一个xml中，只是了好看-->
 
